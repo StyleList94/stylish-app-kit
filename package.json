@@ -1,0 +1,27 @@
+{
+  "name": "stylish-app-kit",
+  "version": "0.0.0",
+  "private": true,
+  "author": "StyleList94",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StyleList94/stylish-app-kit.git"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a",
+  "scripts": {
+    "lint": "eslint templates/",
+    "format": "prettier --write templates/",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "stylish-ui-kit",
+  "version": "2.2.2",
+  "description": "Stylish UI kit for React applications",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/main.umd.js",
+  "module": "./dist/main.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.es.js",
+      "require": "./dist/main.umd.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "types": "./dist/main.d.ts",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "author": "StyleList94",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StyleList94/stylish-ui-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StyleList94/stylish-ui-kit/issues"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx)": "pnpm run lint"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@storybook/addon-docs": "^10.0.2",
+    "@storybook/addon-onboarding": "^10.0.2",
+    "@storybook/react-vite": "^10.0.2",
+    "@tailwindcss/vite": "^4.1.16",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.9.2",
+    "@types/react": "^18",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/eslint-plugin": "^1.4.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-stylish": "^2.3.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-storybook": "10.0.2",
+    "eslint-plugin-testing-library": "^7.13.3",
+    "globals": "^16.5.0",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "storybook": "^10.0.2",
+    "tailwindcss": "^4.1.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
+    "vite-plugin-sexy-declare-type": "^1.0.2",
+    "vitest": "^4.0.6"
+  }
+}

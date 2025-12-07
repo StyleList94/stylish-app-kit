@@ -1,0 +1,25 @@
+---
+import RootLayout from '@/layouts/root.astro';
+
+interface Props {
+  error: unknown;
+}
+
+const { error } = Astro.props;
+---
+
+<RootLayout>
+  <div>
+    <h2>Something went wrong!</h2>
+
+    {
+      process.env.NODE_ENV === 'development' && (
+        <p>{error instanceof Error ? error.stack : 'Unknown error'}</p>
+      )
+    }
+
+    <div>
+      <a href="/"> Go to Main Page </a>
+    </div>
+  </div>
+</RootLayout>

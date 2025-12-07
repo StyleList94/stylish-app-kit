@@ -1,0 +1,128 @@
+---
+import RootLayout from '@/layouts/root.astro';
+---
+
+<RootLayout>
+  <main class="container">
+    <div class="logo-container">
+      <div class="logo">⭐</div>
+      <h1 class="title">
+        <span class="gradient-text">Stylish Astro</span>
+      </h1>
+    </div>
+
+    <p class="description">Create stylish app that shine like stars</p>
+
+    <p class="footer-text">
+      Edit <code>src/pages/index.astro</code> and save to test HMR
+    </p>
+  </main>
+</RootLayout>
+
+<style>
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 4rem;
+    line-height: 1;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .gradient-text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .description {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .footer-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .footer-text code {
+    background: var(--color-background-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .logo-container {
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-size: 3rem;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+</style>
