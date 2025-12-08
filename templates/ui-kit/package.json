@@ -28,13 +28,6 @@
   },
   "author": "StyleList94",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StyleList94/stylish-ui-kit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/StyleList94/stylish-ui-kit/issues"
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx)": "pnpm run lint"
   },

@@ -29,6 +29,12 @@ Implemented with `React`
 
 ## Get Started
 
+### Use template
+
+```bash
+pnpm create stylish-app -t extension
+```
+
 ### Install Dependencies
 
 ```bash

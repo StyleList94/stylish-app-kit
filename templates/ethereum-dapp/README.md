@@ -2,7 +2,7 @@
 
 Create stylish EVM based DApp
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FStyleList94%2Fstylish-ethereum-dapp)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FStyleList94%2Fstylish-app-kit%2Ftree%2Fmain%2Ftemplates%2Fethereum-dapp)
 
 ## Feature
 
@@ -84,7 +84,7 @@ Code Formatter
 ## Getting Started
 
 ```bash
-pnpm create next-app --example https://github.com/StyleList94/stylish-ethereum-dapp
+pnpm create next-app --example https://github.com/StyleList94/stylish-app-kit/tree/main/templates/ethereum-dapp
 ```
 
 ### Custom RPC

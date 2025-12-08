@@ -30,8 +30,7 @@ Create stylish app with Astro
 ## Use this template
 
 ```bash
-# PNPM
-pnpm create astro@latest --template StyleList94/stylish-astro-app
+pnpm create stylish-app -t astro
 ```
 
 ## Getting Started

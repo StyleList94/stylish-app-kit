@@ -16,7 +16,7 @@ Quick start your React Application
 ### Use template
 
 ```bash
-npx degit StyleList94/stylish-react-app stylish-app
+pnpm create stylish-app -t react
 ```
 
 ### Install Dependencies
@@ -24,8 +24,8 @@ npx degit StyleList94/stylish-react-app stylish-app
 ```bash
 npm install
 
-# or yarn
-yarn install
+# or pnpm
+pnpm install
 ```
 
 ### Run App
@@ -33,35 +33,35 @@ yarn install
 ```bash
 npm run dev
 
-# or yarn
-yarn dev
+# or pnpm
+pnpm dev
 ```
 
 ### Testing
 
 #### CI/watch
 
-```bash 
+```bash
 npm run test
 
-# or yarn
-yarn test
+# or pnpm
+pnpm test
 ```
 
 #### UI Mode
 
-```bash 
+```bash
 npm run test:ui
 
-# or yarn
-yarn test:ui
+# or pnpm
+pnpm test:ui
 ```
 
 #### Coverage
 
-```bash 
+```bash
 npm run test:coverage
 
-# or yarn
-yarn test:coverage
+# or pnpm
+pnpm test:coverage
 ```

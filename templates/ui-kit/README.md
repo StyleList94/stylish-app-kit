@@ -13,6 +13,12 @@ Stylish UI kit for React applications
 
 ## Get Started
 
+### Use template
+
+```bash
+pnpm create stylish-app -t ui
+```
+
 ### Install Dependencies
 
 ```bash
