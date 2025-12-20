@@ -1,7 +1,7 @@
 {
   "name": "stylish-extension",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0",
   "scripts": {
     "build": "webpack",
     "dev": "webpack --mode development --watch",
