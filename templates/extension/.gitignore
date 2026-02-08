@@ -24,3 +24,19 @@ bun.lockb
 # InteliJ
 .idea
 
+# AI agents
+.claude/
+.claude.local.md
+.cursor/
+.cursorrules
+.cursorignore
+.windsurf/
+.windsurfrules
+.cline/
+.clinerules
+.continue/
+.continuerc.json
+.aider*
+.codeiumignore
+.gemini/
+
