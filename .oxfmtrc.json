@@ -1,0 +1,34 @@
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "tailwindcss": {
+    "enabled": true
+  },
+  "sortImports": {
+    "newlinesBetween": true,
+    "groups": [
+      "type-import",
+      [
+        "value-builtin",
+        "value-external"
+      ],
+      "value-internal",
+      [
+        "value-parent",
+        "value-sibling",
+        "value-index"
+      ],
+      "unknown"
+    ]
+  }
+}
