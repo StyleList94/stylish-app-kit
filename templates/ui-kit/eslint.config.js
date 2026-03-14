@@ -6,7 +6,6 @@ import stylishTypeScript from 'eslint-config-stylish/typescript';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import storybook from 'eslint-plugin-storybook';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default defineConfig(
   {
@@ -52,5 +51,4 @@ export default defineConfig(
     ...vitest.configs.recommended,
   },
   storybook.configs['flat/recommended'],
-  eslintConfigPrettier,
 );

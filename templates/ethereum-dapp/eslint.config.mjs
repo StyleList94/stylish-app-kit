@@ -3,7 +3,7 @@ import stylish from 'eslint-config-stylish';
 import stylishReact from 'eslint-config-stylish/react';
 import stylishReactHooks from 'eslint-config-stylish/react-hooks';
 import stylishTypeScript from 'eslint-config-stylish/typescript';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import nextPlugin from '@next/eslint-plugin-next';
@@ -61,5 +61,4 @@ export default defineConfig(
     files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     ...vitest.configs.recommended,
   },
-  eslintConfigPrettier,
 );

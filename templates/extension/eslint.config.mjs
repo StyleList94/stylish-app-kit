@@ -3,7 +3,7 @@ import stylish from 'eslint-config-stylish';
 import stylishReact from 'eslint-config-stylish/react';
 import stylishReactHooks from 'eslint-config-stylish/react-hooks';
 import stylishTypeScript from 'eslint-config-stylish/typescript';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+
 
 export default tseslint.config(
   { ignores: ['dist/', '*.config.js'] },
@@ -36,5 +36,4 @@ export default tseslint.config(
     },
     extends: [stylishTypeScript],
   },
-  eslintConfigPrettier,
 );

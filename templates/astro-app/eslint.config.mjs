@@ -8,7 +8,7 @@ import tsESLintParser from '@typescript-eslint/parser';
 import { configs as astroConfigs } from 'eslint-plugin-astro';
 import stylish from 'eslint-config-stylish';
 import stylishTypeScript from 'eslint-config-stylish/typescript';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+
 
 export default defineConfig(
   globalIgnores(['node_modules', 'dist', '.astro']),
@@ -53,5 +53,4 @@ export default defineConfig(
       'import/namespace': 'off',
     },
   },
-  eslintConfigPrettier,
 );

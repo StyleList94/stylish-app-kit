@@ -2,12 +2,15 @@
   "name": "stylish-ui-kit",
   "version": "0.0.0",
   "description": "Stylish UI kit for React applications",
-  "type": "module",
+  "license": "MIT",
+  "author": "StyleList94",
   "files": [
     "dist"
   ],
+  "type": "module",
   "main": "./dist/main.umd.js",
   "module": "./dist/main.es.js",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
@@ -16,25 +19,18 @@
     },
     "./style.css": "./dist/style.css"
   },
-  "types": "./dist/main.d.ts",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "lint:eslint": "eslint .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "test": "vitest run",
     "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-  },
-  "author": "StyleList94",
-  "license": "MIT",
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx)": "pnpm run lint"
-  },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "tailwindcss": ">=4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -51,7 +47,6 @@
     "@vitejs/plugin-react": "^5.1.0",
     "@vitest/eslint-plugin": "^1.4.0",
     "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.8",
     "eslint-config-stylish": "^2.3.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -62,7 +57,8 @@
     "globals": "^16.5.0",
     "jsdom": "^27.1.0",
     "lint-staged": "^16.2.6",
-    "prettier": "^3.6.2",
+    "oxfmt": "^0.40.0",
+    "oxlint": "^1.55.0",
     "react": "^18",
     "react-dom": "^18",
     "storybook": "^10.0.2",
@@ -72,5 +68,13 @@
     "vite": "^7.1.12",
     "vite-plugin-sexy-declare-type": "^1.0.2",
     "vitest": "^4.0.6"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx)": "pnpm run lint"
   }
 }
