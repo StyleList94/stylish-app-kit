@@ -1,8 +1,5 @@
 {
-  // https://oxc.rs/docs/guide/usage/linter/config
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-
-  // ─── Plugins ───
   "plugins": ["typescript", "react", "import", "jsx-a11y", "vitest"],
   "jsPlugins": [
     {
@@ -22,11 +19,9 @@
       "specifier": "eslint-plugin-astro"
     }
   ],
-
-  // ─── Categories ───
-  "categories": { "correctness": "error" },
-
-  // ─── Settings ───
+  "categories": {
+    "correctness": "error"
+  },
   "settings": {
     "jsx-a11y": {
       "components": {
@@ -37,20 +32,30 @@
       "version": "19"
     }
   },
-  "env": { "builtin": true },
+  "env": {
+    "builtin": true
+  },
   "ignorePatterns": ["node_modules", "dist", ".astro"],
-
-  // ─── Rules ───
   "rules": {
-    // ESLint — Best Practices
-    "array-callback-return": ["error", { "allowImplicit": true }],
+    "array-callback-return": [
+      "error",
+      {
+        "allowImplicit": true
+      }
+    ],
     "block-scoped-var": "error",
     "class-methods-use-this": "error",
     "curly": ["error", "multi", "consistent"],
     "default-case": "error",
     "default-case-last": "error",
     "default-param-last": "error",
-    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
     "grouped-accessor-pairs": "error",
     "guard-for-in": "error",
     "max-classes-per-file": ["error", 1],
@@ -61,7 +66,12 @@
     "no-console": "warn",
     "no-constructor-return": "error",
     "no-div-regex": "error",
-    "no-else-return": ["error", { "allowElseIf": false }],
+    "no-else-return": [
+      "error",
+      {
+        "allowElseIf": false
+      }
+    ],
     "no-eval": "error",
     "no-extend-native": "error",
     "no-extra-bind": "error",
@@ -112,15 +122,28 @@
     "no-use-before-define": "error",
     "no-useless-constructor": "error",
     "no-var": "error",
-    "no-void": ["error", { "allowAsStatement": true }],
-    "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
+    "no-void": [
+      "error",
+      {
+        "allowAsStatement": true
+      }
+    ],
+    "prefer-promise-reject-errors": [
+      "error",
+      {
+        "allowEmptyReject": true
+      }
+    ],
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "radix": "error",
     "symbol-description": "error",
-    "valid-typeof": ["error", { "requireStringLiterals": true }],
-
-    // ESLint — Stylistic
+    "valid-typeof": [
+      "error",
+      {
+        "requireStringLiterals": true
+      }
+    ],
     "arrow-body-style": "error",
     "dot-notation": "error",
     "func-names": ["warn", "as-needed"],
@@ -142,8 +165,18 @@
     "no-multi-assign": "error",
     "no-multi-str": "error",
     "no-nested-ternary": "error",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-unneeded-ternary": ["error", { "defaultAssignment": false }],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-unneeded-ternary": [
+      "error",
+      {
+        "defaultAssignment": false
+      }
+    ],
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
     "no-useless-rename": "error",
@@ -176,8 +209,6 @@
     "unicode-bom": ["error", "never"],
     "vars-on-top": "error",
     "yoda": "error",
-
-    // ESLint — Non-native (documentation only, not enforced by oxlint)
     "consistent-return": "error",
     "no-implied-eval": "error",
     "no-octal-escape": "error",
@@ -227,9 +258,12 @@
     ],
     "one-var": ["error", "never"],
     "prefer-arrow-callback": "error",
-    "prefer-regex-literals": ["error", { "disallowRedundantWrapping": true }],
-
-    // Import — Native
+    "prefer-regex-literals": [
+      "error",
+      {
+        "disallowRedundantWrapping": true
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -244,8 +278,6 @@
     ],
     "import/no-self-import": "error",
     "import/prefer-default-export": "off",
-
-    // Import — JS Plugin
     "import-js/no-extraneous-dependencies": [
       "error",
       {
@@ -271,10 +303,13 @@
         ]
       }
     ],
-
-    // JSX A11y — Native
     "jsx-a11y/anchor-has-content": "error",
-    "jsx-a11y/aria-role": ["error", { "ignoreNonDOM": false }],
+    "jsx-a11y/aria-role": [
+      "error",
+      {
+        "ignoreNonDOM": false
+      }
+    ],
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
@@ -285,9 +320,12 @@
         "depth": 25
       }
     ],
-    "jsx-a11y/no-autofocus": ["error", { "ignoreNonDOM": true }],
-
-    // JSX A11y — JS Plugin
+    "jsx-a11y/no-autofocus": [
+      "error",
+      {
+        "ignoreNonDOM": true
+      }
+    ],
     "jsx-a11y-js/control-has-associated-label": [
       "error",
       {
@@ -316,12 +354,25 @@
         ],
         "depth": 5
       }
-    ]
+    ],
+    "import-js/order": [
+      "error",
+      {
+        "groups": [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "import-js/newline-after-import": "error"
   },
-
-  // ─── Overrides ───
   "overrides": [
-    // TypeScript
     {
       "files": ["**/*.{ts,mts,cts}", "**/*.astro"],
       "rules": {
@@ -405,7 +456,6 @@
         "eslint/dot-notation": "off"
       }
     },
-    // Tests
     {
       "files": [
         "**/__tests__/**/*.[jt]s?(x)",
@@ -413,7 +463,6 @@
       ],
       "rules": {}
     },
-    // Astro Components
     {
       "files": ["**/*.astro"],
       "rules": {
@@ -421,7 +470,6 @@
         "astro-js/prefer-class-list-directive": "warn"
       }
     },
-    // React Components
     {
       "files": ["**/*.{jsx,tsx}"],
       "rules": {
@@ -482,7 +530,6 @@
         "react/exhaustive-deps": "warn"
       }
     },
-    // React Hooks — Custom Hooks
     {
       "files": ["**/use*.ts"],
       "rules": {
