@@ -8,8 +8,8 @@ Quick start your React Application
 - SWC
 - Vitest
 - Testing Library
-- ESLint Airbnb rules
-- Prettier
+- Oxlint (Airbnb-style rules)
+- Oxfmt
 
 ## Get Started
 

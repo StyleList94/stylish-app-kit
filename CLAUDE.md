@@ -27,8 +27,8 @@ Each template is an independent project. Always `cd` into the template directory
 ### Root level
 
 ```bash
-pnpm lint          # ESLint across all templates/
-pnpm format        # Prettier across all templates/
+pnpm lint          # Oxlint across all templates/
+pnpm format        # Oxfmt across all templates/
 ```
 
 ### Per-template commands (run from `templates/<name>/`)
@@ -37,7 +37,7 @@ pnpm format        # Prettier across all templates/
 | ----------------- | -------------------- | ------------- | ---------------- | ----------------------------- | ------------ | ------------- |
 | `pnpm dev`        | Next dev (Turbopack) | Next dev      | Vite dev         | -                             | Astro dev    | Webpack watch |
 | `pnpm build`      | Next build           | Next build    | tsc + Vite build | tsc --noEmit + Vite lib build | Astro build  | Webpack prod  |
-| `pnpm lint`       | ESLint               | ESLint        | ESLint           | ESLint                        | ESLint       | ESLint        |
+| `pnpm lint`       | Oxlint               | Oxlint        | Oxlint           | Oxlint                        | Oxlint + ESLint | Oxlint     |
 | `pnpm test`       | Vitest run           | Vitest run    | Vitest run       | Vitest run                    | Vitest run   | -             |
 | `pnpm test:watch` | Vitest watch         | Vitest watch  | Vitest watch     | Vitest watch                  | Vitest watch | -             |
 | `pnpm storybook`  | -                    | -             | -                | Storybook dev :6006           | -            | -             |
@@ -54,12 +54,13 @@ pnpm vitest run path/to/test.test.tsx
 
 ### Template independence
 
-Templates share no workspace linking or shared packages. Each has its own `node_modules`, `package.json`, and tooling configs. The root `package.json` only provides ESLint/Prettier/Husky for the root-level templates/ directory.
+Templates share no workspace linking or shared packages. Each has its own `node_modules`, `package.json`, and tooling configs. The root `package.json` only provides Oxlint/Oxfmt/Husky for the root-level templates/ directory.
 
 ### Shared conventions across templates
 
 - **Import alias:** `@/*` maps to `./src/*` (or `./lib/*` in ui-kit)
-- **ESLint:** All use `eslint-config-stylish` (flat config, ESLint 9) + `eslint-config-prettier`
+- **Linting:** Oxlint with `.oxlintrc.json` (native + JS plugin rules). astro-app additionally uses ESLint for `.astro` files.
+- **Formatting:** Oxfmt with `.oxfmtrc.json`. astro-app additionally uses Prettier for `.astro` files.
 - **TypeScript:** Strict mode, `moduleResolution: "bundler"`, `skipLibCheck: true`
 - **Testing:** Vitest with `globals: true` (no test imports needed) + React Testing Library + jsdom (or happy-dom for ethereum-dapp/astro-app)
 - **Styling:** Tailwind CSS v4 via PostCSS (or `@tailwindcss/vite` plugin in ui-kit)
@@ -67,7 +68,7 @@ Templates share no workspace linking or shared packages. Each has its own `node_
 
 ### Git hooks (next-app, ethereum-dapp)
 
-- **pre-commit:** lint-staged runs `eslint --fix` on code files, `prettier --write` on json/md/yaml
+- **pre-commit:** lint-staged runs `oxlint --fix` + `oxfmt --write` on code files, `oxfmt --write` on json/md/yaml
 - **pre-push:** `tsc --noEmit` + `vitest run`
 
 ### ethereum-dapp specifics

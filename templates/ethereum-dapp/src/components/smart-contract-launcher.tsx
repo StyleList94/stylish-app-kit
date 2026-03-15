@@ -77,9 +77,8 @@ const SmartContractLauncher = () => {
   const estimateContractGas = useEstimateContractGas();
 
   const selectedFunctionInputs = useMemo(() => {
-    if (selectedAbiFunction) {
-      return selectedAbiFunction.inputs;
-    }
+    if (selectedAbiFunction) return selectedAbiFunction.inputs;
+
     return null;
   }, [selectedAbiFunction]);
 
@@ -175,9 +174,8 @@ const SmartContractLauncher = () => {
       (item) => item.type === 'function',
     );
 
-    if (inputLoadAbiElement.current) {
-      inputLoadAbiElement.current.value = '';
-    }
+    if (inputLoadAbiElement.current) inputLoadAbiElement.current.value = '';
+
     setSelectedAbi(variant);
     setAbiFunctions(filteredAbi);
     setAbiOptions(
@@ -277,9 +275,8 @@ const SmartContractLauncher = () => {
     try {
       gas = await estimateContractGas(writeContractParams);
     } catch (error) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      }
+      if (error instanceof Error) setErrorMessage(error.message);
+
       return;
     }
 

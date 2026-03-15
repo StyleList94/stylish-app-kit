@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -40,6 +40,7 @@ const Combobox = ({
   placeholder = 'Select option...',
   queryPlaceholder = 'Search option...',
 }: Props) => {
+  const listId = useId();
   const [open, setOpen] = useState(false);
 
   return (
@@ -48,6 +49,7 @@ const Combobox = ({
         <Button
           variant="outline"
           role="combobox"
+          aria-controls={listId}
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
@@ -60,7 +62,7 @@ const Combobox = ({
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput placeholder={queryPlaceholder} className="h-9" />
-          <CommandList>
+          <CommandList id={listId}>
             <CommandEmpty>No option found.</CommandEmpty>
             <CommandGroup>
               {options.map((option) => (

@@ -76,10 +76,10 @@ Testing
 - Vitest
 - React Testing Library
 
-Code Formatter
+Linter / Formatter
 
-- ESLint
-- Prettier
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html)
+- [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
 
 ## Getting Started
 

@@ -23,9 +23,8 @@ export default function useWriteContract<
     ...parameters,
     mutation: {
       onSuccess(hash) {
-        if (address && chainId) {
+        if (address && chainId)
           setAddressToPendingTxHash({ txHash: hash, address, chainId });
-        }
       },
       ...parameters.mutation,
     },

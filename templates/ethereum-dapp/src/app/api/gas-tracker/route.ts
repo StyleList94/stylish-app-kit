@@ -14,7 +14,7 @@ type ResponseData = {
 };
 
 export async function GET() {
-  if (!process.env.ETHERSCAN_API_KEY) {
+  if (!process.env.ETHERSCAN_API_KEY)
     return new Response(
       JSON.stringify({
         status: 'FAIL',
@@ -22,7 +22,6 @@ export async function GET() {
       }),
       { status: 401 },
     );
-  }
 
   const res = await fetch(
     `https://api.etherscan.io/v2/api?chainid=1&module=gastracker&action=gasoracle&apikey=${process.env.ETHERSCAN_API_KEY}`,
@@ -30,7 +29,7 @@ export async function GET() {
 
   const json = (await res.json()) as ResponseData;
 
-  if (typeof json.result === 'string') {
+  if (typeof json.result === 'string')
     return new Response(
       JSON.stringify({
         status: 'FAIL',
@@ -38,7 +37,6 @@ export async function GET() {
       }),
       { status: 400 },
     );
-  }
 
   return Response.json({
     status: 'OK',

@@ -32,11 +32,10 @@ const CopyToClipboard = ({
   };
 
   useEffect(() => {
-    if (isCopied) {
+    if (isCopied)
       setTimeout(() => {
         setIsCopied(false);
       }, 2000);
-    }
   }, [isCopied]);
 
   return (

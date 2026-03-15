@@ -10,8 +10,8 @@ React based Chrome Extensions
 - Webpack
 - React
 - Tailwind
-- ESLint
-- Prettier
+- Oxlint
+- Oxfmt
 
 ### Popup
 
@@ -47,7 +47,7 @@ npm install
 #### 1. execute build script
 
 ```bash
-npm run build 
+npm run build
 ```
 
 bundled in the `dist` directory

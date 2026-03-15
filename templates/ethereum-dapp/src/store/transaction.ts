@@ -68,9 +68,7 @@ export const createTransactionSlice: StateCreator<
         `${WEB_STORAGE_PREFIX}_PENDING_TX_HASH_LIST`,
       );
 
-      if (!pendingTxList) {
-        return prevState;
-      }
+      if (!pendingTxList) return prevState;
 
       const queryKey = `${address}_${chainId}`;
 
@@ -126,9 +124,7 @@ export const createTransactionSlice: StateCreator<
         `${WEB_STORAGE_PREFIX}_PENDING_TX_HASH_LIST`,
       );
 
-      if (!rawPendingTxList) {
-        return prevState;
-      }
+      if (!rawPendingTxList) return prevState;
 
       const queryKey = `${address}_${chainId}`;
 
@@ -148,9 +144,8 @@ export const createTransactionSlice: StateCreator<
 
         Reflect.deleteProperty(filteredPendingTxList, queryKey);
 
-        if (!Object.keys(filteredPendingTxList).length) {
+        if (!Object.keys(filteredPendingTxList).length)
           localStorage.removeItem(`${WEB_STORAGE_PREFIX}_PENDING_TX_HASH_LIST`);
-        }
       } else {
         nextPendingTxHash = txHashQueue[0] || null;
         nextPendingTxHashQueue = txHashQueue;

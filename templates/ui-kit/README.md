@@ -9,7 +9,7 @@ Stylish UI kit for React applications
 - Styling with Tailwind CSS
 - Storybook for component showcase
 - Unit test with Vitest and React Testing Library
-- Support ESLint and Prettier
+- Linting with Oxlint, formatting with Oxfmt
 
 ## Get Started
 

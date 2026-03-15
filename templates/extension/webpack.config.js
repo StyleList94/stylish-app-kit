@@ -4,7 +4,6 @@ const { EnvironmentPlugin } = require('webpack');
 const { mergeWithRules } = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -58,7 +57,6 @@ const defaultConfig = {
   plugins: [
     new EnvironmentPlugin({}),
     new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'] }),
-    new ESLintPlugin(),
     new CopyPlugin({
       patterns: [
         {
@@ -119,7 +117,7 @@ const mergeRules = mergeWithRules({
 });
 
 module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
+  if (argv.mode === 'development')
     return mergeRules(defaultConfig, {
       mode: 'development',
       devtool: 'cheap-module-source-map',
@@ -138,7 +136,6 @@ module.exports = (env, argv) => {
         maxEntrypointSize: 400000,
       },
     });
-  }
 
   return mergeRules(defaultConfig, {
     mode: 'production',

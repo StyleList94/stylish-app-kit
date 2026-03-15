@@ -23,7 +23,7 @@ export async function POST(
 
   const targetUrl = networkToRpc[network as SupportNetwork];
 
-  if (!targetUrl) {
+  if (!targetUrl)
     return new Response(
       JSON.stringify({
         jsonrpc: '2.0',
@@ -35,15 +35,12 @@ export async function POST(
       }),
       { status: 500 },
     );
-  }
 
   const headers = new Headers();
   headers.set('Content-Type', 'application/json');
 
   const authorization = req.headers.get('authorization');
-  if (authorization) {
-    headers.set('Authorization', authorization);
-  }
+  if (authorization) headers.set('Authorization', authorization);
 
   try {
     const res = await fetch(targetUrl, {

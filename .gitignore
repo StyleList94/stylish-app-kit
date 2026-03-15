@@ -33,6 +33,7 @@ next-env.d.ts
 
 # Editors
 .idea/
+.vscode/
 
 # AI agents
 .claude/

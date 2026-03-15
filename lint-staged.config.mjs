@@ -13,9 +13,31 @@ export default {
       }
     }
 
+    return Object.entries(templateFiles).flatMap(([template, fileList]) => {
+      const fileArgs = fileList.map((f) => `"${f}"`).join(' ');
+      return [
+        `sh -c 'cd templates/${template} && pnpm exec oxfmt --write ${fileArgs}'`,
+        `sh -c 'cd templates/${template} && pnpm exec oxlint --fix ${fileArgs}'`,
+      ];
+    });
+  },
+  '*.{json,css,md,yaml,yml}': (files) => {
+    const templateFiles = {};
+
+    for (const file of files) {
+      const match = file.match(/templates\/([^/]+)\//);
+      if (match) {
+        const template = match[1];
+        if (!templateFiles[template]) {
+          templateFiles[template] = [];
+        }
+        templateFiles[template].push(file);
+      }
+    }
+
     return Object.entries(templateFiles).map(([template, fileList]) => {
       const fileArgs = fileList.map((f) => `"${f}"`).join(' ');
-      return `sh -c 'cd templates/${template} && pnpm exec eslint --fix ${fileArgs}'`;
+      return `sh -c 'cd templates/${template} && pnpm exec oxfmt --write ${fileArgs}'`;
     });
   },
 };

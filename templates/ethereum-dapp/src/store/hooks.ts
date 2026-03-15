@@ -7,9 +7,8 @@ import { type RootStore } from '@/store/index';
 const useRootStore = <T>(selector: (store: RootStore) => T): T => {
   const storeContext = useContext(StoreContext);
 
-  if (!storeContext) {
+  if (!storeContext)
     throw new Error('useAppStore must be used within StoreProvider');
-  }
 
   return useStore(storeContext, selector);
 };

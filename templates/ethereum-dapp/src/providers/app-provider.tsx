@@ -30,9 +30,8 @@ const makeQueryClient = () =>
 let browserQueryClient: QueryClient | undefined;
 
 const getQueryClient = () => {
-  if (isServer) {
-    return makeQueryClient();
-  }
+  if (isServer) return makeQueryClient();
+
   browserQueryClient ??= makeQueryClient();
   return browserQueryClient;
 };

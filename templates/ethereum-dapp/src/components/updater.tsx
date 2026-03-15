@@ -18,13 +18,12 @@ const Updater = () => {
   const { status: waitTxStatus, latestTxStatus } = usePendingTransaction();
 
   useEffect(() => {
-    if (pendingTxHash && waitTxStatus === 'pending') {
+    if (pendingTxHash && waitTxStatus === 'pending')
       toast.loading('Pending Transaction...', { id: pendingTxHash });
-    }
   }, [pendingTxHash, waitTxStatus]);
 
   useEffect(() => {
-    if (latestTxHash && latestTxStatus !== 'pending') {
+    if (latestTxHash && latestTxStatus !== 'pending')
       toast[latestTxStatus](
         `${latestTxStatus === 'success' ? 'Complete' : 'Fail'} Transaction!`,
         {
@@ -40,7 +39,6 @@ const Updater = () => {
           },
         },
       );
-    }
   }, [latestTxHash, latestTxStatus, chain]);
 
   useEffect(() => {
@@ -49,9 +47,8 @@ const Updater = () => {
       address &&
       chainId &&
       (waitTxStatus === 'success' || waitTxStatus === 'error')
-    ) {
+    )
       removeAddressToPendingTxHash({ address, chainId });
-    }
   }, [
     removeAddressToPendingTxHash,
     waitTxStatus,
@@ -61,9 +58,7 @@ const Updater = () => {
   ]);
 
   useEffect(() => {
-    if (address && chainId) {
-      findPendingTxHash({ address, chainId });
-    }
+    if (address && chainId) findPendingTxHash({ address, chainId });
   }, [findPendingTxHash, address, chainId]);
 
   return <div className="updater" />;

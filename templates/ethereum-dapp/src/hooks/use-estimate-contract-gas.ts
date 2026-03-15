@@ -9,13 +9,10 @@ export default function useEstimateContractGas() {
 
   return useCallback(
     async (args: EstimateContractGasParameters): Promise<bigint> => {
-      if (!address) {
+      if (!address)
         throw new Error(' must be connected wallet to estimate gas.');
-      }
 
-      if (!client) {
-        throw new Error('PublicClient is not initialized');
-      }
+      if (!client) throw new Error('PublicClient is not initialized');
 
       return await client.estimateContractGas({ ...args, account: address });
     },

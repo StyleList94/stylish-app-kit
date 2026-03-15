@@ -39,8 +39,10 @@ const AllTheProviders = ({ children }: { children: ReactNode }) => {
       }),
   );
 
+  const store = createRootStore();
+
   return (
-    <StoreContext.Provider value={createRootStore()}>
+    <StoreContext.Provider value={store}>
       <WagmiProvider config={config} reconnectOnMount={false}>
         <QueryClientProvider client={queryClient}>
           {children}

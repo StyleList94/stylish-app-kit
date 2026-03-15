@@ -45,9 +45,7 @@ const SendTransaction = () => {
 
   const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (value && !/^\d+\.?\d*$/.test(value)) {
-      return;
-    }
+    if (value && !/^\d+\.?\d*$/.test(value)) return;
 
     setInputValue(value);
   };

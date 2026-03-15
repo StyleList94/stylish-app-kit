@@ -21,13 +21,11 @@ Create stylish NEXT app
 - Vitest
 - DOM Testing with React Testing Library
 
-### Code Formatter
+### Linter / Formatter
 
-- ESLint
-  - Support flat config (ESLint 9)
-  - Include [Stylish config](https://github.com/StyleList94/eslint-config-stylish)
-  - Support `lint-staged`
-- Prettier
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) with `.oxlintrc.json`
+- [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) with `.oxfmtrc.json`
+- Support `lint-staged`
 
 ### Styling
 
@@ -36,7 +34,7 @@ Create stylish NEXT app
 ### Workflow
 
 - Git Hooks via `husky`
-  - `pre-commit`: run `lint-staged`
+  - `pre-commit`: run `lint-staged` (Oxlint + Oxfmt)
   - `pre-push`: run `tsc`, test script
 
 ## How to use
