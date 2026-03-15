@@ -1,5 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+  // Astro hybrid: oxlint handles .ts/.tsx/.astro(frontmatter), ESLint handles .astro(template)
+  // OXC VS Code extension cannot parse .astro — editor lint for .astro comes from ESLint only
   "plugins": ["typescript", "react", "import", "jsx-a11y", "vitest"],
   "jsPlugins": [
     {
@@ -13,10 +15,6 @@
     {
       "name": "jsx-a11y-js",
       "specifier": "eslint-plugin-jsx-a11y"
-    },
-    {
-      "name": "astro-js",
-      "specifier": "eslint-plugin-astro"
     }
   ],
   "categories": {
@@ -391,7 +389,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.{ts,mts,cts}", "**/*.astro"],
+      "files": ["**/*.{ts,mts,cts,tsx}"],
       "rules": {
         // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/consistent-return": "error",
@@ -495,13 +493,6 @@
         "**/?(*.)+(spec|test).[jt]s?(x)"
       ],
       "rules": {}
-    },
-    {
-      "files": ["**/*.astro"],
-      "rules": {
-        "import/namespace": "off",
-        "astro-js/prefer-class-list-directive": "warn"
-      }
     },
     {
       "files": ["**/*.{jsx,tsx}"],

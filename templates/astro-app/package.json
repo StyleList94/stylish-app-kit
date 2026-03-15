@@ -7,11 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "lint:eslint": "eslint .",
-    "format": "oxfmt .",
-    "format:check": "oxfmt --check .",
+    "lint": "oxlint && eslint",
+    "lint:fix": "oxlint --fix && eslint --fix",
+    "format": "oxfmt . && prettier --write '**/*.astro'",
+    "format:check": "oxfmt --check . && prettier --check '**/*.astro'",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -19,23 +18,22 @@
     "astro": "5.16.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
     "@types/node": "^24.9.2",
     "@typescript-eslint/parser": "^8.48.1",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.39.1",
     "eslint-config-stylish": "^3.0.0",
-    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-astro": "1.4.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
     "happy-dom": "^20.0.11",
     "oxfmt": "^0.40.0",
     "oxlint": "^1.55.0",
-    "prettier-plugin-astro": "0.14.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.48.1",
     "vitest": "^3.2.4"
   }
 }
