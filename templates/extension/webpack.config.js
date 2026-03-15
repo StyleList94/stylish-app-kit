@@ -119,7 +119,7 @@ const mergeRules = mergeWithRules({
 });
 
 module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
+  if (argv.mode === 'development')
     return mergeRules(defaultConfig, {
       mode: 'development',
       devtool: 'cheap-module-source-map',
@@ -138,7 +138,6 @@ module.exports = (env, argv) => {
         maxEntrypointSize: 400000,
       },
     });
-  }
 
   return mergeRules(defaultConfig, {
     mode: 'production',

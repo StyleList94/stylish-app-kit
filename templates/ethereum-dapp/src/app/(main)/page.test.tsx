@@ -39,7 +39,9 @@ describe('Main page', () => {
     // Check for hero section content
     expect(screen.getByText('Next Generation DApp')).toBeInTheDocument();
     expect(screen.getByText(/Stylish/)).toBeInTheDocument();
-    expect(screen.getByText('Build faster. Ship prettier.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Build faster. Ship prettier.'),
+    ).toBeInTheDocument();
   });
 
   it('renders Features component with accessible tabs', async () => {

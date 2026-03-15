@@ -310,7 +310,7 @@
           "**/webpack.config.*.js",
           "**/rollup.config.js",
           "**/rollup.config.*.js",
-          "vite.config.*",
+          "**/vite.config.*",
           "**/vitest.setup.{js,ts,mjs,mts}",
           "eslint.config.*",
           "**/__mocks__/**",
@@ -382,6 +382,22 @@
           "sibling",
           "index"
         ],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["type"],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["type"],
         "newlines-between": "always-and-inside-groups"
       }
     ],

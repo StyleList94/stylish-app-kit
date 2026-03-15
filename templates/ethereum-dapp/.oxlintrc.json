@@ -385,6 +385,14 @@
           "sibling",
           "index"
         ],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["type"],
         "newlines-between": "always-and-inside-groups"
       }
     ],

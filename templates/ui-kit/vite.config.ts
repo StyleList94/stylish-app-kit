@@ -1,8 +1,9 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
-import { defineConfig } from 'vite';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sexyDeclareType from 'vite-plugin-sexy-declare-type';
 

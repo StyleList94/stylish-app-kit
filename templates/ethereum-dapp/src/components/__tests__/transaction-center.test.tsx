@@ -6,6 +6,7 @@ import { fireEvent, render, screen } from '@/lib/test-utils';
 import usePendingTransaction from '@/hooks/use-pending-transaction';
 
 import Account from '../account';
+
 import TransactionCenter from '../transaction-center';
 
 vi.mock('@/hooks/use-pending-transaction', () => ({

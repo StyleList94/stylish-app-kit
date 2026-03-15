@@ -68,19 +68,14 @@ const TxWithContext = () => {
   const handleClick =
     ({ name, payload }: Action) =>
     () => {
-      if (name === 'setPendingTxHash') {
-        setPendingTxHash(payload);
-      } else if (name === 'setAddressToPendingTxHash') {
+      if (name === 'setPendingTxHash') setPendingTxHash(payload);
+      else if (name === 'setAddressToPendingTxHash')
         setAddressToPendingTxHash(payload);
-      } else if (name === 'removeAddressToPendingTxHash') {
+      else if (name === 'removeAddressToPendingTxHash')
         removeAddressToPendingTxHash(payload);
-      } else if (name === 'findPendingTxHash') {
-        findPendingTxHash(payload);
-      } else if (name === 'resetPendingTxHash') {
-        resetPendingTxHash();
-      } else {
-        resetPendingTxHashQueue();
-      }
+      else if (name === 'findPendingTxHash') findPendingTxHash(payload);
+      else if (name === 'resetPendingTxHash') resetPendingTxHash();
+      else resetPendingTxHashQueue();
     };
 
   return (

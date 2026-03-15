@@ -32,33 +32,28 @@ const UnitConverter = () => {
     e.preventDefault();
     const { name: unit, value } = e.target;
 
-    if (value && !/^\d+\.?\d*$/.test(value)) {
-      return;
-    }
+    if (value && !/^\d+\.?\d*$/.test(value)) return;
 
-    if (unit === 'ether') {
+    if (unit === 'ether')
       setInputValues({
         ether: value,
         gwei: convertUnits(value || '0', -9),
         wei: convertUnits(value || '0', -18),
       });
-    }
 
-    if (unit === 'gwei') {
+    if (unit === 'gwei')
       setInputValues({
         ether: convertUnits(value || '0', 9),
         gwei: value,
         wei: convertUnits(value || '0', -9),
       });
-    }
 
-    if (unit === 'wei') {
+    if (unit === 'wei')
       setInputValues({
         ether: convertUnits(value || '0', 18),
         gwei: convertUnits(value || '0', 9),
         wei: value,
       });
-    }
   };
 
   return (

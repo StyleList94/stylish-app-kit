@@ -44,11 +44,10 @@ export const separateFunctionInput = (
   const [, functionName, argumentLength] =
     /^([a-zA-Z]+)\[(\d+)]$/.exec(formattedName) ?? [];
 
-  if (functionName === '' || Number.isNaN(+argumentLength)) {
+  if (functionName === '' || Number.isNaN(+argumentLength))
     throw new Error(
       'invalid arguments, formattedName must be formatted string.',
     );
-  }
 
   return [functionName, +argumentLength];
 };
@@ -57,22 +56,17 @@ export const convertToAbiTypedValue = (value: string, type: string) => {
   if (/^u?int\d*(\[])*$/.test(type)) {
     if (type.endsWith('[]')) {
       const valueArray = value.replace(/\s+/g, '').split(',');
-      if (valueArray.every((item) => /^-?\d+$/.test(item))) {
+      if (valueArray.every((item) => /^-?\d+$/.test(item)))
         return valueArray.map(BigInt);
-      }
+
       return [];
     }
 
-    if (/^-?\d+$/.test(value)) {
-      return BigInt(value);
-    }
+    if (/^-?\d+$/.test(value)) return BigInt(value);
   }
-  if (type === 'bool') {
-    return value.toLowerCase() === 'true';
-  }
-  if (type.endsWith('[]')) {
-    return value.replace(/\s+/g, '').split(',');
-  }
+  if (type === 'bool') return value.toLowerCase() === 'true';
+
+  if (type.endsWith('[]')) return value.replace(/\s+/g, '').split(',');
 
   return value;
 };

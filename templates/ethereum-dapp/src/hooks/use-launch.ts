@@ -22,19 +22,16 @@ export default function useLaunch(
   const launched = typeof remainTime === 'number' && remainTime <= 0;
 
   useEffect(() => {
-    if (launched) {
-      stopTick();
-    }
+    if (launched) stopTick();
   }, [launched, stopTick]);
 
   useEffect(() => {
-    if (currentTime) {
+    if (currentTime)
       setRemainTime(
         launchTime.current - currentTime >= 0
           ? launchTime.current - currentTime
           : 0,
       );
-    }
   }, [currentTime]);
 
   return { remainTime, currentTime, launched };

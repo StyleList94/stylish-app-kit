@@ -54,9 +54,8 @@ const SignMessage = () => {
 
       setRecoveryAddress(address);
     } catch (error) {
-      if (error instanceof Error) {
-        setErrorRecoverMessage(error.message);
-      }
+      if (error instanceof Error) setErrorRecoverMessage(error.message);
+
       setRecoveryAddress('');
     }
   };

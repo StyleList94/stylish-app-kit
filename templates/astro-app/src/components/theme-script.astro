@@ -4,30 +4,31 @@
   }
 
   const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme'))
       return localStorage.getItem('theme');
-    }
+
     return 'system';
   };
 
-  const resolveTheme = (theme) => {
-    if (theme === 'system') {
-      theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const resolveTheme = (rawTheme) => {
+    let resolved = rawTheme;
+    if (rawTheme === 'system')
+      resolved = window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light';
-    }
-    document.documentElement.classList[theme === 'dark' ? 'add' : 'remove'](
+
+    document.documentElement.classList[resolved === 'dark' ? 'add' : 'remove'](
       'dark',
     );
   };
 
-  let currentTheme = getThemePreference();
+  const currentTheme = getThemePreference();
   resolveTheme(currentTheme);
 
   if (typeof localStorage !== 'undefined') {
     const observer = new MutationObserver(() => {
-      const currentTheme = getThemePreference();
-      if (currentTheme !== 'system') {
+      const savedTheme = getThemePreference();
+      if (savedTheme !== 'system') {
         const isDark = document.documentElement.classList.contains('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
       }

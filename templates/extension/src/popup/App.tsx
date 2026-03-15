@@ -10,20 +10,17 @@ const App = () => {
     const nextCount = count + 1;
     setCount(nextCount);
 
-    if (activeTabId) {
+    if (activeTabId)
       await chrome.action.setBadgeText({
         tabId: activeTabId,
         text: `${nextCount}`,
       });
-    }
   };
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const currentTab = tabs[0];
-      if (currentTab.id) {
-        setActiveTabId(currentTab.id);
-      }
+      if (currentTab.id) setActiveTabId(currentTab.id);
     });
   }, []);
 

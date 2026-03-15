@@ -28,13 +28,12 @@ export default function usePendingTransaction() {
     onReplaced: (replacement) => {
       const { replacedTransaction, transaction } = replacement;
       toast.dismiss(transaction.hash);
-      if (address && chainId) {
+      if (address && chainId)
         setAddressToPendingTxHash({
           address,
           chainId,
           txHash: replacedTransaction.hash,
         });
-      }
     },
   });
 
