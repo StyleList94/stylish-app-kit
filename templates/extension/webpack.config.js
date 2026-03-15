@@ -4,7 +4,6 @@ const { EnvironmentPlugin } = require('webpack');
 const { mergeWithRules } = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -58,7 +57,6 @@ const defaultConfig = {
   plugins: [
     new EnvironmentPlugin({}),
     new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'] }),
-    new ESLintPlugin(),
     new CopyPlugin({
       patterns: [
         {
