@@ -104,6 +104,7 @@
     "no-return-assign": ["error", "always"],
     "no-script-url": "error",
     "no-self-compare": "error",
+    // [!] Not yet supported by oxlint native
     "no-sequences": "error",
     "no-shadow": "error",
     "no-template-curly-in-string": "error",
@@ -210,14 +211,18 @@
     "vars-on-top": "error",
     "yoda": "error",
     "consistent-return": "error",
+    // [!] Not yet supported by oxlint native
     "no-implied-eval": "error",
+    // [!] Not yet supported by oxlint native
     "no-octal-escape": "error",
+    // [!] Not yet supported by oxlint native
     "no-restricted-exports": [
       "error",
       {
         "restrictedNamedExports": ["default", "then"]
       }
     ],
+    // [!] Not yet supported by oxlint native
     "no-restricted-properties": [
       "error",
       {
@@ -234,10 +239,15 @@
         "message": "Please use Object.defineProperty instead."
       }
     ],
+    // [!] Not yet supported by oxlint native
     "no-restricted-syntax": ["error", "WithStatement", "LabeledStatement"],
+    // [!] Not yet supported by oxlint native
     "no-undef-init": "error",
+    // [!] Not yet supported by oxlint native
     "no-unreachable-loop": "error",
+    // [!] Not yet supported by oxlint native
     "no-useless-assignment": "error",
+    // [!] Not yet supported by oxlint native
     "camelcase": [
       "error",
       {
@@ -248,6 +258,7 @@
         "allow": ["^unstable_", "^experimental_"]
       }
     ],
+    // [!] Not yet supported by oxlint native
     "object-shorthand": [
       "error",
       "always",
@@ -256,8 +267,11 @@
         "avoidQuotes": true
       }
     ],
+    // [!] Not yet supported by oxlint native
     "one-var": ["error", "never"],
+    // [!] Not yet supported by oxlint native
     "prefer-arrow-callback": "error",
+    // [!] Not yet supported by oxlint native
     "prefer-regex-literals": [
       "error",
       {
@@ -298,8 +312,11 @@
           "**/webpack.config.*.js",
           "**/rollup.config.js",
           "**/rollup.config.*.js",
+          "vite.config.*",
+          "**/vitest.setup.{js,ts,mjs,mts}",
           "eslint.config.*",
-          "**/__mocks__/**"
+          "**/__mocks__/**",
+          "**/mocks/**"
         ]
       }
     ],
@@ -376,7 +393,9 @@
     {
       "files": ["**/*.{ts,mts,cts}", "**/*.astro"],
       "rules": {
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/consistent-return": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/no-base-to-string": [
           "error",
           {
@@ -390,6 +409,7 @@
             ]
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/no-confusing-void-expression": [
           "error",
           {
@@ -402,6 +422,7 @@
             "allowInterfaces": "with-single-extends"
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/no-floating-promises": [
           "error",
           {
@@ -409,13 +430,16 @@
             "ignoreIIFE": true
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/no-misused-promises": [
           "error",
           {
             "checksVoidReturn": false
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/only-throw-error": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-promise-reject-errors": [
           "error",
           {
@@ -423,12 +447,14 @@
             "allowEmptyReject": true
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/restrict-template-expressions": [
           "error",
           {
             "allowNumber": true
           }
         ],
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/unbound-method": [
           "error",
           {
@@ -441,16 +467,23 @@
         "typescript/consistent-generic-constructors": "error",
         "typescript/consistent-indexed-object-style": "error",
         "typescript/consistent-type-assertions": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/dot-notation": "error",
         "typescript/no-confusing-non-null-assertion": "error",
         "typescript/no-inferrable-types": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-find": "error",
         "typescript/prefer-for-of": "error",
         "typescript/prefer-function-type": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-includes": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-nullish-coalescing": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-optional-chain": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-regexp-exec": "error",
+        // [!] Type-aware: not yet supported by oxlint (no type checker)
         "typescript/prefer-string-starts-ends-with": "error",
         "eslint/consistent-return": "off",
         "eslint/dot-notation": "off"
