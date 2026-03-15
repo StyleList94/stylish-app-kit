@@ -6,7 +6,7 @@ Create stylish app with Astro
 
 - 🚀 Astro v5
 - 🌙 Dark/Light theme support
-- 💅 Code formatting with ESLint, Prettier
+- 💅 Linting with Oxlint + ESLint (.astro), formatting with Oxfmt + Prettier (.astro)
 - 🧪 Unit test with Vitest
 
 ## Project Structure
