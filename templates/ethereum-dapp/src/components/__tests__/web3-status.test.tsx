@@ -13,18 +13,18 @@ vi.mock('wagmi', async () => {
   const originalModule = await vi.importActual<typeof wagmi>('wagmi');
   return {
     ...originalModule,
-    useBalance: vi.fn(),
+    useBalance: vi.fn<typeof wagmi.useBalance>(),
   };
 });
 
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue({
+    vi.fn<typeof fetch>().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => ({ message: 'fetched!' }),
-    }),
+    } as unknown as Response),
   );
 });
 

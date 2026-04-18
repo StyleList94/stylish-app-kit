@@ -13,20 +13,20 @@ vi.mock('wagmi', async () => {
   const originalModule = await vi.importActual<typeof wagmi>('wagmi');
   return {
     ...originalModule,
-    useBalance: vi.fn(),
-    useSendTransaction: vi.fn(),
-    useEstimateGas: vi.fn(),
+    useBalance: vi.fn<typeof wagmi.useBalance>(),
+    useSendTransaction: vi.fn<typeof wagmi.useSendTransaction>(),
+    useEstimateGas: vi.fn<typeof wagmi.useEstimateGas>(),
   };
 });
 
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue({
+    vi.fn<typeof fetch>().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => ({ message: 'fetched!' }),
-    }),
+    } as unknown as Response),
   );
 });
 
@@ -45,7 +45,7 @@ describe('<SendTransaction />', () => {
   });
 
   test('to send ether', async () => {
-    const sendTransactionMock = vi.fn();
+    const sendTransactionMock = vi.fn<() => void>();
 
     (wagmi.useEstimateGas as Mock).mockReturnValue({
       data: 21000n,

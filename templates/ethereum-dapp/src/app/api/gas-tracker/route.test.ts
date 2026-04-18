@@ -31,9 +31,9 @@ describe('api/gas-tracker', () => {
   });
 
   it('fetches data and returns JSON response when api key is set', async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
+    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue({
       json: () => Promise.resolve(mockResponse),
-    });
+    } as unknown as Response);
     vi.stubGlobal('fetch', fetchMock);
     vi.stubEnv('ETHERSCAN_API_KEY', 'PW486');
 
@@ -56,10 +56,10 @@ describe('api/gas-tracker', () => {
   });
 
   it('returns 400 if failed to request', async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
+    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue({
       json: () =>
         Promise.resolve({ ...mockResponse, result: 'Excessive limit' }),
-    });
+    } as unknown as Response);
     vi.stubGlobal('fetch', fetchMock);
     vi.stubEnv('ETHERSCAN_API_KEY', 'ETHEREUM');
 

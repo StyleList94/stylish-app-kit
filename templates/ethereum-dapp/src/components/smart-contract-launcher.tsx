@@ -270,7 +270,7 @@ const SmartContractLauncher = () => {
         ) ?? [],
     };
 
-    let gas = 0n;
+    let gas: bigint;
 
     try {
       gas = await estimateContractGas(writeContractParams);

@@ -12,7 +12,7 @@ vi.mock('next-themes', async () => {
   const actualModule = await vi.importActual('next-themes');
   return {
     ...actualModule,
-    useTheme: vi.fn(),
+    useTheme: vi.fn<typeof useTheme>(),
   };
 });
 
@@ -20,20 +20,22 @@ describe('<ThemeControlSwitch />', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: vi.fn().mockImplementation((query: string) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-      })),
+      value: vi
+        .fn<typeof window.matchMedia>()
+        .mockImplementation((query: string) => ({
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: vi.fn<() => void>(),
+          removeListener: vi.fn<() => void>(),
+          addEventListener: vi.fn<() => void>(),
+          removeEventListener: vi.fn<() => void>(),
+          dispatchEvent: vi.fn<() => boolean>(),
+        })) as unknown as typeof window.matchMedia,
     });
   });
 
-  const mockSetTheme = vi.fn();
+  const mockSetTheme = vi.fn<(theme: string) => void>();
 
   beforeEach(() => {
     mockSetTheme.mockClear();

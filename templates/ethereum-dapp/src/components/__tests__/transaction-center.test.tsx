@@ -10,7 +10,7 @@ import Account from '../account';
 import TransactionCenter from '../transaction-center';
 
 vi.mock('@/hooks/use-pending-transaction', () => ({
-  default: vi.fn(),
+  default: vi.fn<typeof usePendingTransaction>(),
 }));
 
 const txHash =
@@ -19,11 +19,11 @@ const txHash =
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue({
+    vi.fn<typeof fetch>().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => ({ message: 'fetched!' }),
-    }),
+    } as unknown as Response),
   );
 });
 

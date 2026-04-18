@@ -13,7 +13,7 @@ vi.mock('wagmi', async () => {
   const originalModule = await vi.importActual<typeof wagmi>('wagmi');
   return {
     ...originalModule,
-    useBlockNumber: vi.fn(),
+    useBlockNumber: vi.fn<typeof wagmi.useBlockNumber>(),
   };
 });
 
