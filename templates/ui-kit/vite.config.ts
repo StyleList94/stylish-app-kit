@@ -23,7 +23,7 @@ export default defineConfig({
       entry: {
         main: resolve(__dirname, 'lib/main.ts'),
       },
-      name: 'StylisUiKit',
+      name: 'StylishUiKit',
       formats: ['es', 'umd'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       cssFileName: 'style',
