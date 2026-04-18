@@ -75,6 +75,7 @@ const defaultConfig = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/popup/index.html'),
+      chunks: ['main'],
       minify: true,
     }),
   ],
