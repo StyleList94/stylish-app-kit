@@ -16,10 +16,12 @@ describe('<CopyToClipboard />', () => {
     await userEvent.hover(button);
 
     expect(
-      await screen.findByText('Copy', {
-        selector: 'div[data-state="delayed-open"] >',
-      }),
-    ).toBeInTheDocument();
+      (
+        await screen.findAllByText('Copy', {
+          selector: 'div[data-state="delayed-open"] *',
+        })
+      ).length,
+    ).toBeGreaterThan(0);
   });
 
   it('should be copied item', async () => {
@@ -39,9 +41,11 @@ describe('<CopyToClipboard />', () => {
     await userEvent.hover(button);
 
     expect(
-      await screen.findByText('Copied!', {
-        selector: 'div[data-state="delayed-open"] >',
-      }),
-    ).toBeInTheDocument();
+      (
+        await screen.findAllByText('Copied!', {
+          selector: 'div[data-state="delayed-open"] *',
+        })
+      ).length,
+    ).toBeGreaterThan(0);
   });
 });

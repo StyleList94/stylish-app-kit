@@ -30,8 +30,6 @@ vi.mock('@/hooks/use-estimate-contract-gas', () => ({
       .mockImplementation(() => Promise.resolve(100000n)),
 }));
 
-vi.mock('');
-
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
