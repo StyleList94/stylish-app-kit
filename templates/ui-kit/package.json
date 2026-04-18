@@ -68,6 +68,6 @@
     "tailwindcss": ">=4"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx)": "pnpm run lint"
+    "*.{js,jsx,ts,tsx}": "pnpm run lint"
   }
 }
