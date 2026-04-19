@@ -18,25 +18,26 @@ vi.mock('wagmi', async () => {
   const originalModule = await vi.importActual<typeof wagmi>('wagmi');
   return {
     ...originalModule,
-    useReadContract: vi.fn(),
-    useWriteContract: vi.fn(),
+    useReadContract: vi.fn<typeof wagmi.useReadContract>(),
+    useWriteContract: vi.fn<typeof wagmi.useWriteContract>(),
   };
 });
 
 vi.mock('@/hooks/use-estimate-contract-gas', () => ({
-  default: () => vi.fn().mockImplementation(() => Promise.resolve(100000n)),
+  default: () =>
+    vi
+      .fn<() => Promise<bigint>>()
+      .mockImplementation(() => Promise.resolve(100000n)),
 }));
-
-vi.mock('');
 
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue({
+    vi.fn<typeof fetch>().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => ({ message: 'fetched!' }),
-    }),
+    } as unknown as Response),
   );
 });
 
@@ -79,7 +80,7 @@ describe('<SmartContractLauncher />', () => {
       error: null,
     });
 
-    const writeContractMock = vi.fn();
+    const writeContractMock = vi.fn<() => void>();
     (wagmi.useWriteContract as Mock).mockReturnValue({
       isLoading: false,
       writeContract: writeContractMock,

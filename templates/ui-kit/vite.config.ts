@@ -18,16 +18,17 @@ export default defineConfig({
     css: true,
   },
   build: {
+    cssMinify: 'esbuild',
     lib: {
       entry: {
         main: resolve(__dirname, 'lib/main.ts'),
       },
-      name: 'StylisUiKit',
+      name: 'StylishUiKit',
       formats: ['es', 'umd'],
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       cssFileName: 'style',
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         chunkFileNames: () => `bundle/[name]-[hash].js`,

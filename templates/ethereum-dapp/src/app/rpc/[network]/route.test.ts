@@ -104,7 +104,7 @@ describe('/rpc/[network]', () => {
   });
 
   it('should forward authorization header', async () => {
-    const mockFetch = vi.fn().mockResolvedValue(
+    const mockFetch = vi.fn<typeof fetch>().mockResolvedValue(
       new Response(requestBlockNumberBody, {
         status: 200,
         headers: { 'Content-Type': 'application/json' },

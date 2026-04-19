@@ -21,9 +21,9 @@ describe('<GasTrackerLoader />', () => {
   it('should not call fetch if origin is not set', async () => {
     vi.stubEnv('ORIGIN', undefined);
     vi.stubEnv('NODE_ENV', 'production');
-    const fetchMock = vi.fn().mockResolvedValue({
+    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue({
       json: () => Promise.resolve(mockData),
-    });
+    } as unknown as Response);
     vi.stubGlobal('fetch', fetchMock);
 
     render(await GasTrackerLoader());
@@ -32,9 +32,9 @@ describe('<GasTrackerLoader />', () => {
   });
 
   it('should prefetch data and render component', async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
+    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue({
       json: () => Promise.resolve(mockData),
-    });
+    } as unknown as Response);
     vi.stubGlobal('fetch', fetchMock);
 
     render(await GasTrackerLoader());
