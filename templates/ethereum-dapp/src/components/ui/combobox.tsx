@@ -48,10 +48,10 @@ const Combobox = ({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          role="combobox"
+          aria-haspopup="listbox"
           aria-controls={listId}
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-50 justify-between"
         >
           {value
             ? options.find((option) => option.value === value)?.label
@@ -59,7 +59,7 @@ const Combobox = ({
           <ChevronsUpDownIcon className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-50 p-0">
         <Command>
           <CommandInput placeholder={queryPlaceholder} className="h-9" />
           <CommandList id={listId}>

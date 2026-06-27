@@ -116,7 +116,7 @@ describe('<SmartContractLauncher />', () => {
       target: { value: '0x7b79995e5f793a07bc00c21412e50ecae098e7f9' },
     });
 
-    const trigger = screen.getByRole('combobox');
+    const trigger = screen.getByRole('button', { name: /select function/i });
     fireEvent.click(trigger);
 
     const optionSymbol = await screen.findByText('symbol[0]');
