@@ -88,7 +88,7 @@ describe('parseAbiFileToJSON', () => {
       type: 'application/json',
     });
 
-    await expect(parseAbiFileToJSON(mockFile)).rejects.toThrow();
+    await expect(parseAbiFileToJSON(mockFile)).rejects.toThrow(SyntaxError);
   });
 
   it('should handle file reading errors', async () => {
@@ -98,7 +98,7 @@ describe('parseAbiFileToJSON', () => {
 
     const parsePromise = parseAbiFileToJSON(mockFile);
 
-    await expect(parsePromise).rejects.toThrow();
+    await expect(parsePromise).rejects.toThrow(SyntaxError);
   });
 });
 
@@ -115,11 +115,11 @@ describe('separateFunctionInput', () => {
   it('throws on invalid argument', () => {
     expect(() => {
       separateFunctionInput('safeTransferFrom(3)');
-    }).toThrow();
+    }).toThrow('invalid arguments, formattedName must be formatted string.');
 
     expect(() => {
       separateFunctionInput('x-rated');
-    }).toThrow();
+    }).toThrow('invalid arguments, formattedName must be formatted string.');
   });
 });
 
