@@ -5,13 +5,13 @@ import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import sexyDeclareType from 'vite-plugin-sexy-declare-type';
+import declareType from '@stylelish/vite-plugin-declare-type';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), sexyDeclareType()],
+  plugins: [react(), declareType()],
   test: {
     globals: true,
     environment: 'jsdom',
